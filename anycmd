@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# author: weldan jamili <mweldan@gmail.com>
+# wednesday, december 30, 2015
+
+loser="postfix";
+file="/tmp/temp";
+if [ "$(whoami)" != "$loser" ]; then 
+	exec $* | sed "/$loser/d" &> $file
+	cat $file
+fi
+
